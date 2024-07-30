@@ -23,7 +23,7 @@
 
 class bankAccounts
 {
-private:
+protected:
     double balance;
     int numWithdrawals;
     int numDeposits;
