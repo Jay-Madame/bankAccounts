@@ -43,5 +43,5 @@ public:
     int getNumDeposits();
     double getAPR();
     double getMonthlyService();
-    friend std::ostream operator<<(std::ostream &strm, bankAccounts &acct);
+    friend std::ostream &operator<<(std::ostream &strm, bankAccounts &acct);
 };

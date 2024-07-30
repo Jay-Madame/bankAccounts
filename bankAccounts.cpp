@@ -1,7 +1,7 @@
 #include "bankAccounts.h"
 
 bankAccounts::bankAccounts(double startBal, double interestR) : balance(startBal), APR(interestR), numWithdrawals(0),
-                                                                numDeposits(0), monthlyService(0),  monthStartBal(startBal) {}
+                                                                numDeposits(0), monthlyService(0), monthStartBal(startBal) {}
 bankAccounts::bankAccounts() : balance(0), APR(0), numWithdrawals(0),
                                numDeposits(0), monthlyService(0), monthStartBal(0) {}
 void bankAccounts::deposit(double amt)
@@ -56,12 +56,12 @@ double bankAccounts::getMonthlyService()
     return monthlyService;
 }
 
-std::ostream operator<<(std::ostream &strm, bankAccounts &acct)
+std::ostream &operator<<(std::ostream &strm, bankAccounts &acct)
 {
     strm << "Starting Balance: \t" << acct.monthStartBal << std::endl
-    << "Number of Deposits: \t" << acct.getNumDeposits() << std::endl
-    << "Number of Withdrawals: \t" << acct.getNumWithdrawals() << std::endl
-    << "Service Charges: \t" << acct.getMonthlyService() << std::endl
-    << "Ending Balance: \t" << acct.getBalance() << std::endl;
-
+         << "Number of Deposits: \t" << acct.getNumDeposits() << std::endl
+         << "Number of Withdrawals: \t" << acct.getNumWithdrawals() << std::endl
+         << "Service Charges: \t" << acct.getMonthlyService() << std::endl
+         << "Ending Balance: \t" << acct.getBalance() << std::endl;
+    return strm;
 }
