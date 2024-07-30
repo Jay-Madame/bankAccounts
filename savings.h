@@ -1,7 +1,7 @@
 #pragma once
 #include "bankAccounts.h"
 
-class Savings : protected bankAccounts
+class Savings : public bankAccounts
 {
 protected:
     bool isActive;
@@ -13,4 +13,7 @@ public:
     virtual void deposit(double amt);
     virtual void monthlyProc();
     virtual void setActivity();
+    const int MAX_MONTHLY_WITHDRAWALS = 4;
+    const double WITHDRAWAL_FEE = 1;
+    const double MINIMUM_BALANCE = 25;
 };

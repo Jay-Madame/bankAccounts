@@ -1,7 +1,7 @@
 #include "savings.h"
 
 Savings::Savings(double bal, double APR)
-: bankAccounts(bal, APR)
+    : bankAccounts(bal, APR)
 {
     setActivity();
 }
@@ -22,12 +22,12 @@ void Savings::deposit(double amt)
 }
 void Savings::monthlyProc()
 {
-    if (numWithdrawals > 4)
-        monthlyService += (numWithdrawals - 4);
+    if (numWithdrawals > MAX_MONTHLY_WITHDRAWALS)
+        monthlyService += (numWithdrawals - MAX_MONTHLY_WITHDRAWALS) * WITHDRAWAL_FEE;
     bankAccounts::monthlyProc();
     setActivity();
 }
 void Savings::setActivity()
 {
-    isActive = balance >= 25;
+    isActive = balance >= MINIMUM_BALANCE;
 }

@@ -20,7 +20,7 @@
 */
 
 #pragma once
-
+#include <ostream>
 class bankAccounts
 {
 protected:
@@ -29,6 +29,7 @@ protected:
     int numDeposits;
     double APR;
     double monthlyService;
+    double monthStartBal;
 
 public:
     bankAccounts(double startBal, double interestR);
@@ -42,4 +43,5 @@ public:
     int getNumDeposits();
     double getAPR();
     double getMonthlyService();
+    friend std::ostream operator<<(std::ostream &strm, bankAccounts &acct);
 };
